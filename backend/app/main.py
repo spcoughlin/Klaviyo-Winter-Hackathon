@@ -30,9 +30,9 @@ app.add_middleware(
 
 logger.info(f"[STARTUP] Registering routers")
 logger.info(f"[STARTUP] CORS origins: {settings.cors_origins_list()}")
-app.include_router(auth_router, prefix="/api")
-app.include_router(user_router, prefix="/api")
-app.include_router(deals_router, prefix="/api")
+app.include_router(auth_router)
+app.include_router(user_router)
+app.include_router(deals_router)
 logger.info(f"[STARTUP] All routers registered")
 
 

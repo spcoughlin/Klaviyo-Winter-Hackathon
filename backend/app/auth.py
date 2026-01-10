@@ -6,21 +6,15 @@ from passlib.context import CryptContext
 
 from .config import settings
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
 
 
 def hash_password(password: str) -> str:
-    # Bcrypt has a 72-byte limit on passwords
-    # Truncate if necessary to avoid ValueError
-    truncated = password[:72]
-    return pwd_context.hash(truncated)
+    return pwd_context.hash(password)
 
 
 def verify_password(password: str, password_hash: str) -> bool:
-    # Bcrypt has a 72-byte limit on passwords
-    # Truncate if necessary to match the hashed password
-    truncated = password[:72]
-    return pwd_context.verify(truncated, password_hash)
+    return pwd_context.verify(password, password_hash)
 
 
 def create_access_token(subject: str) -> str:
