@@ -240,7 +240,9 @@ Future work:
 
   
 
-* Expanded deal ingestion, partnerships with big retailers for affiliate promotions
+* Expanded agent-based deal ingestion 
+
+* Partnerships with big retailers for affiliate promotions
 
 * More advanced fit and wear modeling
 
